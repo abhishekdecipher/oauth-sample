@@ -1,0 +1,32 @@
+server:
+  port: 8081
+  servlet:
+    application-display-name: "OAuth Sample"
+    context-path: /
+
+mongo:
+  uri: "mongodb://localhost:27017/oauth-sample"
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework: INFO
+    com.decipherzone: DEBUG
+  pattern:
+    console: '%highlight{%d [%-5level] [%t] %l - %msg%n}{FATAL=magenta, ERROR=red, WARN=yellow, INFO=cyan, DEBUG=orange, TRACE=blue}'
+    file: '%highlight{%d [%-5level] [%t] %l - %msg%n}{FATAL=magenta, ERROR=red, WARN=yellow, INFO=cyan, DEBUG=orange, TRACE=blue}'
+    dateformat: 'yyyy-MM-dd HH:mm:ss.SSS'
+  file: logs${file.separator}app.log
+
+security:
+  encryptionSecret: 12312312
+  authTokenExpiryInMS: 2000000000000
+  inviteTokenExpiryInMS: 2000000000000
+
+default:
+  feURL: http://localhost:4200
+
+spring :
+  profiles:
+    active:
+      '@activatedProperties@'
