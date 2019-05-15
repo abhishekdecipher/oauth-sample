@@ -37,5 +37,7 @@ public class Application extends SpringBootServletInitializer {
     super.onStartup(servletContext);
     servletContext.getSessionCookieConfig().setHttpOnly(true);
     servletContext.getSessionCookieConfig().setSecure(true);
+
+    System.out.println("Test fork-v1");
   }
 }
